@@ -1,78 +1,120 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Lugares</title>
     <style>
-      .container {
-        background-color: rgba(0, 0, 0, 0.555);
+      body {
+        background-image: linear-gradient(#ffffff, #080808, #ffffff);
         color: white;
+        font-family: Arial, sans-serif;
+      }
+
+      .card {
+        background-color: #222;
+        border-radius: 8px;
+        padding: 10px;
+        margin: 10px;
+        width: 300px;
+      }
+
+      .card img {
+        width: 100%;
+        border-radius: 8px;
+      }
+
+      .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
       }
     </style>
   </head>
 
-  <body class="container">
-    <header>
-      <img src="" alt="Logo website" />
-    </header>
+  <body>
     <main>
-      <section>
-        <h1>Lugares que eu mais frequento</h1>
-        <h2>Lugares</h2>
-        <div id="container_data">d</div>
-      </section>
+      <h1>Lugares que eu mais frequento</h1>
+      <div id="container_data" class="cards-container"></div>
     </main>
-    <footer>
-      <div>MAPAS</div>
-      <ul>
-        <li>Facebook</li>
-        <li>Instagram</li>
-      </ul>
-    </footer>
-  </body>
 
-  <script>
-    const containerData = document.getElementById("container_data");
-    const dataImg = {
-      containers: [
-        {
-          id: "1",
-          title: "img 1",
-          paragraph: "alguma texto aleatório",
-          img: "img",
-        },
-        {
-          id: "2",
-          title: "img 1",
-          paragraph: "alguma texto aleatório",
-          img: "img",
-        },
-        {
-          id: "3",
-          title: "img 1",
-          paragraph: "alguma texto aleatório",
-          img: "img",
-        },
-        {
-          id: "4",
-          title: "img 1",
-          paragraph: "alguma texto aleatório",
-          img: "img",
-        },
-        {
-          id: "5",
-          title: "img 1",
-          paragraph: "alguma texto aleatório",
-          img: "img",
-        },
-        {
-          id: "6",
-          title: "img 1",
-          paragraph: "alguma texto aleatório",
-          img: "img",
-        },
-      ],
-    };
-  </script>
+    <script>
+      const containerData = document.getElementById("container_data");
+
+      const dataPlaces = {
+        lugares: [
+          {
+            id: 1,
+            nome: "Shopping",
+            descricao: "Centro comercial com várias lojas e restaurantes.",
+            imagem:
+              "https://lh3.googleusercontent.com/gps-cs-s/AHVAweqP7ouTmtTMJ7e45M2TM5qpPmbfzM1hF-CJirx4EVbtzliD2kf35d29FKbaA2sE0cg7wHM7kHRQkXU3nHnz8JSvT5lrLWIutFjlYYUBmaDmsRPfp9vHoaJeDSBHW2Me4pcVnh7NO-JiI5Zb=w408-h272-k-no",
+            categoria: "Lazer",
+            endereco: "Águas Lindas de Goiás, GO",
+          },
+          {
+            id: 2,
+            nome: "Ensino Médio",
+            descricao: "Escola onde cursei o ensino médio.",
+            imagem:
+              "https://lh3.googleusercontent.com/gps-cs-s/AHVAwerUeXVYMe0Omaufwmp3EbB2hCza5ulzq-_Kj74-y7_Tnlpo8a9hSsi4JDhX0lj9wwT_U13fKmeEe2KFNXxNE6wDdzPW1Q6YsmI9FhG_JTAgD7iNSgIxhlSxv5pPMFvAArHbJlKh=w408-h306-k-no",
+            categoria: "Educação",
+            endereco: "Águas Lindas de Goiás, GO",
+          },
+          {
+            id: 3,
+            nome: "Pizza Boa",
+            descricao: "Pizzaria com as melhores pizzas da cidade.",
+            imagem:
+              "https://lh3.googleusercontent.com/gps-cs-s/AHVAweo_xyE0asoF49A_r2dSmDGnUoc5lnFdbtWB2UJBF_V4UPcArvnYPJaducRJTZAhAC22BmN7IhuhN5tu6gAo1pqzD64LagJ8ioP8-TxTrnfdJH2SO6HTQr8agfo8HDfO_84GKHE12JOQnfdC=w408-h272-k-no",
+            categoria: "Alimentação",
+            endereco: "Águas Lindas de Goiás, GO",
+          },
+          {
+            id: 4,
+            nome: "Gol de Ouro",
+            descricao: "Campo de futebol onde costumo jogar com os amigos.",
+            imagem:
+              "https://lh3.googleusercontent.com/gps-cs-s/AHVAweql5qDVZUy82UV8gZtKxRVr9Kbnczm6JUmyKYNLo8YGoCZWl_-hr9duSsUTzkm9VnKMDfPQ1l1MHD1yfqkvUaf3puOlAl52tfghq4oOGJ9c0sqaAxBglcC2TBgR0P2BmSGe8Els=w408-h241-k-no",
+            categoria: "Esporte",
+            endereco: "Águas Lindas de Goiás, GO",
+          },
+          {
+            id: 5,
+            nome: "17º Batalhão da Polícia Militar",
+            descricao: "Local importante para segurança pública da cidade.",
+            imagem:
+              "https://lh3.googleusercontent.com/gps-cs-s/AHVAweqlCKKwa2T1dNlnKCHXahCzfraPfkssb9ptzxvTo7EYTkGaxYC3or6fkQYa2evJAUM3wo_eHHHS8rNJvnMzh4E0P_zkurPp356akcRPwf2d6iIPd2-FqQgekqEIi_u7j03JmEIX3ncNHysr=w408-h453-k-no",
+            categoria: "Institucional",
+            endereco: "Águas Lindas de Goiás, GO",
+          },
+          {
+            id: 6,
+            nome: "Construcenter Materiais para Construção",
+            descricao: "Loja onde compro materiais para obras e reformas.",
+            imagem:
+              "https://lh3.googleusercontent.com/gps-cs-s/AHVAwerANWtyLi7KkzGgXK6a1MJQvxR-HGhNwgv4Q9fMp0LwVr5FZZIafkc4crO9QusrRdnpYdPp5naj8gXQROrtlONmoHemV4hjWC0ft23pOTOkFQ2A4xzCaj6BtsKyWO-vrPQ0kGK5HT40IJBZ=w408-h493-k-no",
+            categoria: "Comércio",
+            endereco: "Águas Lindas de Goiás, GO",
+          },
+        ],
+      };
+
+      // Renderizar os cards
+      // Renderizar os cards
+      dataPlaces.lugares.forEach((item) => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        card.innerHTML = `
+    <img src="${item.imagem}" alt="${item.nome}">
+    <h2>${item.nome}</h2>
+    <p>${item.descricao}</p>
+    <small>${item.categoria} - ${item.endereco}</small>
+  `;
+
+        containerData.appendChild(card);
+      });
+    </script>
+  </body>
 </html>

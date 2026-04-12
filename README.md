@@ -40,6 +40,3 @@ O catálogo está disponível no GitHub Pages:
 
 ---
 
-##  Autor
-Projeto desenvolvido por **Filipe**, como atividade escolar para criar um mini catálogo de lugares do bairro em formato de site.
-

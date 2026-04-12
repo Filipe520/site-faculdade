@@ -96,6 +96,11 @@
       .maps-link:hover {
         background: #1a5bb8;
       }
+
+      :focus {
+        outline: 3px solid #2c7be5;
+        outline-offset: 2px;
+      }
     </style>
   </head>
 
@@ -230,7 +235,7 @@
           <h2>${item.nome}</h2>
           <p>${item.descricao}</p>
           <small>${item.categoria} - ${item.endereco}</small><br>
-          <a href="${item.mapsLink}" target="_blank" class="maps-link">Ver no Google Maps</a>
+          <a href="${item.mapsLink}" aria-label="Abrir ${item.nome} no Google Maps" target="_blank" class="maps-link">Ver no Google Maps</a>
         `;
           containerData.appendChild(card);
         });

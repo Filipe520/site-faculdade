@@ -2,118 +2,250 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>Lugares</title>
     <style>
       body {
-        background-image: linear-gradient(#ffffff, #080808, #ffffff);
-        color: white;
+        background: #f9f9f9;
+        color: #333;
         font-family: Arial, sans-serif;
+        margin: 20px;
       }
 
-      .card {
-        background-color: #222;
-        border-radius: 8px;
+      h1 {
+        color: #2c3e50;
+        text-align: center;
+      }
+
+      #search {
+        display: block;
+        margin: 20px auto;
         padding: 10px;
-        margin: 10px;
-        width: 300px;
-      }
-
-      .card img {
-        width: 100%;
+        width: 80%;
+        max-width: 400px;
+        border: 1px solid #ccc;
         border-radius: 8px;
+        font-size: 16px;
       }
 
       .cards-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .card {
+        border-radius: 12px;
+        padding: 15px;
+        width: 320px;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      }
+
+      .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .card h2 {
+        font-size: 20px;
+        margin: 10px 0;
+        color: #2c3e50;
+      }
+
+      .card p {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 8px;
+      }
+
+      .card small {
+        display: block;
+        font-size: 12px;
+        color: #888;
+        margin-bottom: 10px;
+      }
+
+      .maps-link {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 8px 12px;
+        background: #2c7be5;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .maps-link:hover {
+        background: #1a5bb8;
       }
     </style>
   </head>
 
   <body>
     <main>
-      <h1>Lugares que eu mais frequento</h1>
-      <div id="container_data" class="cards-container"></div>
+      <div>
+        <h1>Catálogo de Águas Lindas – Setor 9</h1>
+        <p style="text-align: center">
+          Confira os principais lugares do bairro!
+        </p>
+        <input
+          type="text"
+          id="search"
+          placeholder="Buscar por título..."
+        />
+      </div>
+      <div
+        id="container_data"
+        class="cards-container"
+      ></div>
     </main>
 
     <script>
-      const containerData = document.getElementById("container_data");
+      const containerData = document.getElementById(
+        'container_data'
+      );
+      const searchInput = document.getElementById('search');
 
       const dataPlaces = {
         lugares: [
           {
             id: 1,
-            nome: "Shopping",
-            descricao: "Centro comercial com várias lojas e restaurantes.",
+            nome: 'Mercado UAI',
+            descricao:
+              'Supermercado com variedade de alimentos, bebidas e produtos de limpeza.',
             imagem:
-              "https://lh3.googleusercontent.com/gps-cs-s/AHVAweqP7ouTmtTMJ7e45M2TM5qpPmbfzM1hF-CJirx4EVbtzliD2kf35d29FKbaA2sE0cg7wHM7kHRQkXU3nHnz8JSvT5lrLWIutFjlYYUBmaDmsRPfp9vHoaJeDSBHW2Me4pcVnh7NO-JiI5Zb=w408-h272-k-no",
-            categoria: "Lazer",
-            endereco: "Águas Lindas de Goiás, GO",
+              'https://lh3.googleusercontent.com/gps-cs-s/APNQkAEH_wAAeEX_Tyei4A1JrJQu80oP1CYM8WUXpqxkhh_WjHcqPhoUpGPOxLjJmw8iZU-Wm3aSEAqW2pLdznsCSq4j2CgkbGgPo_qC6mwUfugeZz8h5TqxfKFUl4S3_ms8u3aUsKd15w=w408-h306-k-no',
+            categoria: 'Supermercado',
+            endereco:
+              'Quadra 72 Conjunto A Setor 9, Águas Lindas de Goiás - GO',
+            mapsLink:
+              'https://www.google.com/maps/place/MERCADO+UAI/@-15.7405106,-48.2871918,17z/data=!4m6!3m5!1s0x935bb9827101cebd:0x24d09160ca185969!8m2!3d-15.7373136!4d-48.2816803!16s%2Fg%2F11t1z_rb5y?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D',
           },
           {
             id: 2,
-            nome: "Ensino Médio",
-            descricao: "Escola onde cursei o ensino médio.",
+            nome: 'Pão e Café Setor 09',
+            descricao:
+              'Padaria e cafeteria com pães frescos, bolos e salgados variados.',
             imagem:
-              "https://lh3.googleusercontent.com/gps-cs-s/AHVAwerUeXVYMe0Omaufwmp3EbB2hCza5ulzq-_Kj74-y7_Tnlpo8a9hSsi4JDhX0lj9wwT_U13fKmeEe2KFNXxNE6wDdzPW1Q6YsmI9FhG_JTAgD7iNSgIxhlSxv5pPMFvAArHbJlKh=w408-h306-k-no",
-            categoria: "Educação",
-            endereco: "Águas Lindas de Goiás, GO",
+              'https://lh3.googleusercontent.com/gps-cs-s/APNQkAHZIGgcoA5fOspxoSc9vyPVGGduP8N84YxYU4BLwfrH3mDEaY5j9LpEhIL_3MUlKCGC30pXEPy1jiBcfylCWhuPwYlTNGuFlQFvBAdHz0M81tSm6-x2OnMKxnxZ6K-Rma18XHBlGPtns2c=w408-h725-k-no',
+            categoria: 'Padaria e Café',
+            endereco:
+              'Quadra 102 Lote 57 conj.A setor 09, Águas Lindas de Goiás - GO',
+            mapsLink:
+              'https://www.google.com/maps/place/P%C3%A3o+e+Caf%C3%A9+setor+09/@-15.7405106,-48.2871918,17z/data=!3m1!4b1!4m6!3m5!1s0x935bb90068489265:0x76d9c212eb7fee21!8m2!3d-15.7405158!4d-48.2846169!16s%2Fg%2F11z3mhpmdz?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D',
           },
           {
             id: 3,
-            nome: "Pizza Boa",
-            descricao: "Pizzaria com as melhores pizzas da cidade.",
+            nome: 'Farmácia Drogasil',
+            descricao:
+              'Farmácia com medicamentos, perfumaria e atendimento especializado.',
             imagem:
-              "https://lh3.googleusercontent.com/gps-cs-s/AHVAweo_xyE0asoF49A_r2dSmDGnUoc5lnFdbtWB2UJBF_V4UPcArvnYPJaducRJTZAhAC22BmN7IhuhN5tu6gAo1pqzD64LagJ8ioP8-TxTrnfdJH2SO6HTQr8agfo8HDfO_84GKHE12JOQnfdC=w408-h272-k-no",
-            categoria: "Alimentação",
-            endereco: "Águas Lindas de Goiás, GO",
+              'https://lh3.googleusercontent.com/gps-cs-s/APNQkAH_1_qEsVA4LZ94NlNKYEvKteg92ai_4F70RCMyqpeepR8akh8OpMseK5vWQhnicdzaxWZkAeCwJdbI2r6wjtbIXlpfsQ1CI4RnwEIDc5KhwNDEKhOr-0sKkecCJNqvlj_W1-a4Iu43Pziy=w425-h240-k-no',
+            categoria: 'Farmácia',
+            endereco:
+              'Av. Barragem, Setor 9, Águas Lindas de Goiás',
+            mapsLink:
+              'https://www.google.com/maps/place/Drogasil/@-15.7399491,-48.2841658,15.75z/data=!4m10!1m2!2m1!1sFarm%C3%A1cia+Drogasil!3m6!1s0x935bb9f415e4af85:0xb259f2adad41e4d3!8m2!3d-15.7344762!4d-48.2831911!15sChJGYXJtw6FjaWEgRHJvZ2FzaWwiA4gBAVoUIhJmYXJtw6FjaWEgZHJvZ2FzaWySAQhwaGFybWFjeZoBI0NoWkRTVWhOTUc5blMwVkpRMEZuVFVOQk9YSjVPRU5SRUFF4AEA-gEECC0QPQ!16s%2Fg%2F11pr432zss?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D',
           },
           {
             id: 4,
-            nome: "Gol de Ouro",
-            descricao: "Campo de futebol onde costumo jogar com os amigos.",
+            nome: 'Escola São Bartolomeu',
+            descricao:
+              'Escola municipal de ensino fundamental que atende crianças da comunidade.',
             imagem:
-              "https://lh3.googleusercontent.com/gps-cs-s/AHVAweql5qDVZUy82UV8gZtKxRVr9Kbnczm6JUmyKYNLo8YGoCZWl_-hr9duSsUTzkm9VnKMDfPQ1l1MHD1yfqkvUaf3puOlAl52tfghq4oOGJ9c0sqaAxBglcC2TBgR0P2BmSGe8Els=w408-h241-k-no",
-            categoria: "Esporte",
-            endereco: "Águas Lindas de Goiás, GO",
+              'https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=bVfti6xggpWxVOL_U5RFyw&cb_client=search.gws-prod.gps&w=408&h=240&yaw=54.758507&pitch=0&thumbfov=100',
+            categoria: 'Educação',
+            endereco:
+              'Rua 3, Setor 9, Águas Lindas de Goiás',
+            mapsLink:
+              'https://www.google.com/maps/place/Escola+S%C3%A3o+Bartolomeu/@-15.7433273,-48.2906698,15z/data=!4m10!1m2!2m1!1sEscola+S%C3%A3o+Bartolomeu!3m6!1s0x935bb934b4c8fcb3:0x296e52e131f814ad!8m2!3d-15.7403269!4d-48.280874!15sChZFc2NvbGEgU8OjbyBCYXJ0b2xvbWV1WhgiFmVzY29sYSBzw6NvIGJhcnRvbG9tZXWSARdlZHVjYXRpb25hbF9pbnN0aXR1dGlvbpoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VNdGIzSlRRMjlCUlJBQuABAPoBBAgAECY!16s%2Fg%2F11fp8_0byf?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D',
           },
           {
             id: 5,
-            nome: "17º Batalhão da Polícia Militar",
-            descricao: "Local importante para segurança pública da cidade.",
+            nome: 'Colégio Estadual Princesa Daiana',
+            descricao:
+              'Escola estadual que oferece ensino fundamental e médio para jovens da região.',
             imagem:
-              "https://lh3.googleusercontent.com/gps-cs-s/AHVAweqlCKKwa2T1dNlnKCHXahCzfraPfkssb9ptzxvTo7EYTkGaxYC3or6fkQYa2evJAUM3wo_eHHHS8rNJvnMzh4E0P_zkurPp356akcRPwf2d6iIPd2-FqQgekqEIi_u7j03JmEIX3ncNHysr=w408-h453-k-no",
-            categoria: "Institucional",
-            endereco: "Águas Lindas de Goiás, GO",
+              'https://lh3.googleusercontent.com/gps-cs-s/APNQkAHVSkso8pyF27_H9jfONq8ZIeJ3R5jWbbPsa0Zbb5BFR7vZqwCFJYstNJ8JlM0BrouArg67qb2T9_8riy5wFdODjurelzjex3vT1aagNU7u6NgdAA1sshuCrJ_08jcP632gSsrS=w408-h306-k-no',
+            categoria: 'Escola Estadual',
+            endereco:
+              'Parque da Barragem, Águas Lindas de Goiás - GO',
+            mapsLink:
+              'https://www.google.com/maps/place/Colegio+Estadual+Princesa+Daiana/@-15.7296655,-48.2692181,15z/data=!4m6!3m5!1s0x935bb8ba1890eff1:0xc73273f08b9e3305!8m2!3d-15.7433586!4d-48.2803701!16s%2Fg%2F1tptrpv6?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D',
           },
           {
             id: 6,
-            nome: "Construcenter Materiais para Construção",
-            descricao: "Loja onde compro materiais para obras e reformas.",
+            nome: 'Principal Auto Center',
+            descricao:
+              'Oficina mecânica especializada em manutenção preventiva e reparos automotivos.',
             imagem:
-              "https://lh3.googleusercontent.com/gps-cs-s/AHVAwerANWtyLi7KkzGgXK6a1MJQvxR-HGhNwgv4Q9fMp0LwVr5FZZIafkc4crO9QusrRdnpYdPp5naj8gXQROrtlONmoHemV4hjWC0ft23pOTOkFQ2A4xzCaj6BtsKyWO-vrPQ0kGK5HT40IJBZ=w408-h493-k-no",
-            categoria: "Comércio",
-            endereco: "Águas Lindas de Goiás, GO",
+              'https://lh3.googleusercontent.com/gps-cs-s/APNQkAG0u0aHAJ9vCaSnxi2vwQp1hcvncCjTXe4yMEdyQzfvzNYAy574lZHDBv0FravjZPCVdo52hi1130DZEG-tfZdpYR4CDvMk86H4JxQIbHNCAv2LogQ9VDTdAwmco3zDwCPqRvu-=w408-h544-k-no',
+            categoria: 'Mecânica Automotiva',
+            endereco:
+              'Quadra 01 Lote 10, Loja 01 - Vivendas Paraíso, Águas Lindas de Goiás - GO',
+            mapsLink:
+              'https://www.google.com/maps/place/Principal+Auto+Center/@-15.7363951,-48.2857139,17z/data=!3m1!4b1!4m6!3m5!1s0x935bc7d98597b759:0x14dcaf5b7bc5b1d2!8m2!3d-15.7364003!4d-48.283139!16s%2Fg%2F11k4p0bd8v?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D',
+          },
+          {
+            id: 7,
+            nome: 'Posto Ponteio',
+            descricao:
+              'Posto de combustível com abastecimento de gasolina, etanol e diesel, além de troca de óleo.',
+            imagem:
+              'https://lh3.googleusercontent.com/gps-cs-s/APNQkAGBaDTUQHgcXPx0pY3lnVVKX0NTEMO4unVoRwjsfA4MPDum5mmBH05Zh62pR9VvKBnCzmM3QIeyGny37Vf_1yDJQo7GfI9ttZVnpYB5ThnZ0NaHv_c52VxGuzx3s1T_RhS9-gH7Bg=w426-h240-k-no',
+            categoria: 'Posto de Combustível',
+            endereco:
+              'Av. Brasília, 3379 Parque da Barragem - Centro, Águas Lindas de Goiás - GO',
+            mapsLink:
+              'https://www.google.com/maps/place/Posto+Ponteio/@-15.7303423,-48.2889286,15.72z/data=!4m10!1m2!2m1!1sPosto+Ponteio!3m6!1s0x935bb8f113aac2c7:0xf062e02da8d2c076!8m2!3d-15.7369583!4d-48.2862704!15sCg1Qb3N0byBQb250ZWlvWg8iDXBvc3RvIHBvbnRlaW-SAQtnYXNfc3RhdGlvbpoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VSNExVbzNORFJuUlJBQuABAPoBBAgAECE!16s%2Fg%2F11cp3dkm8y?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D',
           },
         ],
       };
 
-      // Renderizar os cards
-      // Renderizar os cards
-      dataPlaces.lugares.forEach((item) => {
-        const card = document.createElement("div");
-        card.classList.add("card");
+      function renderCards(lista) {
+        containerData.innerHTML = '';
+        lista.forEach((item) => {
+          const card = document.createElement('div');
+          card.classList.add('card');
+          card.innerHTML = `
+          <img src="${item.imagem}" alt="${item.nome}">
+          <h2>${item.nome}</h2>
+          <p>${item.descricao}</p>
+          <small>${item.categoria} - ${item.endereco}</small><br>
+          <a href="${item.mapsLink}" target="_blank" class="maps-link">Ver no Google Maps</a>
+        `;
+          containerData.appendChild(card);
+        });
+      }
 
-        card.innerHTML = `
-    <img src="${item.imagem}" alt="${item.nome}">
-    <h2>${item.nome}</h2>
-    <p>${item.descricao}</p>
-    <small>${item.categoria} - ${item.endereco}</small>
-  `;
+      // Render inicial
+      renderCards(dataPlaces.lugares);
 
-        containerData.appendChild(card);
+      // Filtro de busca
+      searchInput.addEventListener('input', () => {
+        const termo = searchInput.value.toLowerCase();
+        const filtrados = dataPlaces.lugares.filter(
+          (item) => item.nome.toLowerCase().includes(termo)
+        );
+        renderCards(filtrados);
       });
     </script>
   </body>

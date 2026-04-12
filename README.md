@@ -27,7 +27,8 @@ O catálogo é responsivo e pode ser acessado diretamente pelo celular ou comput
 - 🛒 Mercado UAI – Supermercado com variedade de alimentos e produtos de limpeza  
 - ☕ Pão e Café Setor 09 – Padaria e cafeteria com pães frescos e salgados  
 - 💊 Farmácia Drogasil – Rede de farmácias com medicamentos e perfumaria  
-- 🏫 Colégio Estadual Princesa Daiana – Escola estadual de ensino fundamental e médio  
+- 🏫 Colégio Estadual Princesa Daiana – Escola estadual de ensino fundamental e médio
+- 🏫 Escola São Bartolomeu – Escola municipal de ensino fundamental que atende crianças da comunidade 
 - ⚙️ Principal Auto Center – Oficina mecânica especializada em manutenção preventiva  
 - ⛽ Posto Ponteio – Posto de combustível com abastecimento e troca de óleo  
 
